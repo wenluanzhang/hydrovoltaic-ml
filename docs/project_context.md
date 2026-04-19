@@ -1,166 +1,216 @@
-# Project Context
+## Project Context Update – Phase 1 Modeling (Clean Version)
 
-## Goal
+### Date
 
-Use interpretable machine learning to understand structure–performance relationships in hydrovoltaic materials based on literature-derived data.
-
-## Dataset
-
-* ~219 data points collected from literature
-* Active electrode-dominated systems removed
-* Pulsed-output systems excluded for primary analysis
-* Final dataset focuses on continuous-output systems (~180 samples)
-
-## Key Decisions
-
-### Output Mode Filtering
-
-* Pulsed systems show extremely high and unstable current values
-* Only continuous-output systems retained for main analysis to ensure physical comparability
-
-### Feature Engineering
-
-* Polyelectrolyte types converted into binary descriptors:
-
-  * has_anionic
-  * has_cationic
-  * has_zwitterionic
-* Raw chemical labels preserved separately for qualitative analysis
-
-### Target Selection
-
-* Primary target: voc_V (more complete and stable)
-* Secondary target: log-transformed current density (log_jsc)
-
-## Current Step
-
-* Data cleaning and feature structuring completed
-* Preparing dataset for modeling (feature selection and encoding)
-
-## Notes / Observations
-
-* Current density strongly affected by output mode (pulse vs continuous)
-* Data distribution is highly skewed for current-related metrics
-* Voltage appears more robust across studies
-
-## Modeling Progress (Phase 1 → Phase 3)
-
-### Dataset Status
-
-* Clean hydrovoltaic dataset constructed (~180 samples)
-* Active-electrode systems excluded
-* Pulsed-output systems excluded; only continuous-output systems retained
-* Final usable samples:
-
-  * Voc: ~180
-  * Jsc: ~159
-  * Derived power metric: ~159
+2026-04-17
 
 ---
 
-## Model V1: Baseline (Voc)
+## 1. Dataset Status
 
-### Setup
+The curated hydrovoltaic dataset contains ~180–220 samples after cleaning, with the following key preprocessing steps:
 
-* Target: Voc
-* Features: high-level categorical descriptors (material_class, structure_class, electrolyte presence, mechanism, etc.)
+* Removal of active electrode systems (e.g., Cu/C, Zn/Al, Ag/C), which behave as galvanic cells rather than hydrovoltaic devices.
+* Exclusion of pulse-output data to ensure consistency in current density interpretation.
+* Manual correction and simplification of dominant mechanism labels.
+* Preservation of raw categorical strings (e.g., polyelectrolyte types) alongside structured binary features.
 
-### Result
+The dataset is characterized by:
 
-* R² ≈ -1.31 (very poor performance)
-
-### Interpretation
-
-* High-level descriptors alone cannot explain variation in Voc
-* Model fails to capture meaningful physical relationships
-
----
-
-## Model V2: Refined Features (Voc)
-
-### Setup
-
-* Target: Voc
-* Features:
-
-  * Added electrode-related descriptors (top/bottom electrode, symmetry, metal electrode)
-  * Added ionic information (ionic_groups, polyelectrolyte types)
-
-### Result
-
-* R² ≈ -0.20
-* RMSE and MAE improved significantly
-
-### Interpretation
-
-* Feature refinement improves stability
-* However, Voc remains weakly predictable
-* Suggests mismatch between chosen target and feature set
+* High heterogeneity (cross-paper data)
+* Small sample size
+* Mixed mechanisms (streaming vs ion-gradient systems)
 
 ---
 
-## Target Redefinition
+## 2. Target Engineering
 
-### Motivation
+A derived target was introduced:
 
-* Voc reflects electrostatic potential but not full device output
-* Jsc is highly skewed and unstable across studies
-* Reported power density is inconsistent and incomplete
+* Estimated power density:
 
-### Strategy
+  P ≈ Voc × Jsc / 4
 
-Define a standardized derived target:
+* Log-transformed target:
 
-estimated_power_density = Voc × Jsc / 4
+  log_estimated_power_density
 
-Then apply log transformation:
+Key observation:
 
-log_estimated_power_density = log10(estimated_power_density)
-
-### Rationale
-
-* Combines voltage and current into a single performance metric
-* Ensures consistency across literature data
-* Log transform reduces skewness and improves ML compatibility
+* This derived target is significantly more learnable than Voc alone.
+* Combining voltage and current reduces noise and better reflects device performance.
 
 ---
 
-## Model V3: Derived Power Target
+## 3. Phase 1 Modeling Summary
 
-### Setup
+### Model progression:
 
-* Target: log_estimated_power_density
-* Features: refined feature set from Model V2
+* **V1–V2**: Baseline descriptors → poor performance for Voc prediction
+* **V3**: Switching to log_estimated_power_density → major improvement
+* **V4**: Adding ion_type → modest but meaningful improvement
+* **V5**: Adding device_structure → negligible improvement
+* **V6 (ongoing)**: Testing asymmetry decomposition
 
-### Result
+Typical performance:
 
-* R² ≈ 0.19 (first positive R²)
-* RMSE ≈ 1.21
-* MAE ≈ 0.92
+* R² ≈ 0.2–0.25 (train/test)
+* Stable under ShuffleSplit CV
 
-### Interpretation
+Interpretation:
 
-* Model begins to capture meaningful structure–performance relationships
-* Derived target significantly improves learnability
-* Feature set is physically relevant but still incomplete
-
----
-
-## Key Insights
-
-1. Feature engineering alone is insufficient if target is not aligned with physical behavior
-2. Target definition is critical for successful modeling in literature-based datasets
-3. Derived power metric provides a more robust and informative learning objective
-4. Electrode and ionic descriptors contribute useful signal
-5. Current dataset supports interpretable ML, though predictive power remains moderate
+* This performance level is reasonable given literature-derived, heterogeneous data.
 
 ---
 
-## Next Steps
+## 4. Core Scientific Findings (Phase 1)
 
-* Analyze feature importance (Random Forest)
-* Apply SHAP for interpretability
-* Identify dominant factors governing hydrovoltaic performance
-* Consider adding quantitative descriptors if available (e.g., thickness, concentration)
+### 4.1 Mechanism dominance
+
+The dominant mechanism is the primary determinant of performance:
+
+* Ion-gradient systems consistently outperform streaming systems
+* Distribution shifts are observed across the entire performance range
+
+Conclusion:
+
+* Mechanism-level descriptors outweigh most material-level features
+
+---
+
+### 4.2 Ion transport effects
+
+The introduction of `ion_type` reveals:
+
+* "other_cation" systems correlate with higher performance
+* Strong coupling between ion type and mechanism
+
+Interpretation:
+
+* Ion environment plays a key role in governing device output
+
+---
+
+### 4.3 Polyelectrolyte effect (re-evaluated)
+
+Initial hypothesis:
+
+* Polyelectrolytes may significantly enhance performance
+
+Findings:
+
+* Weak global effect
+* Minor or conditional influence within ion-gradient systems
+* No clear effect within salt-dominated subsets
+
+Conclusion:
+
+* Polyelectrolyte is not a primary driver
+* Its apparent importance is partially confounded by mechanism and ion environment
+
+---
+
+### 4.4 Device structure (geometry vs mechanism)
+
+Observation:
+
+* Sandwich structures show higher average performance than in-plane systems (grouped statistics)
+
+However:
+
+* Device structure does not appear in SHAP or feature importance
+* Minimal impact on R²
+
+Conclusion:
+
+* Device structure is a **derived / proxy variable**
+* Its effect is explained by deeper variables:
+
+  * structure_class
+  * ion transport pathway
+  * mechanism
+
+---
+
+### 4.5 Emerging hierarchy of variables
+
+The data suggests a hierarchical control structure:
+
+1. **Dominant mechanism** (primary driver)
+2. **Ion environment (ion_type)**
+3. **Material structure (porosity, ionic groups)**
+4. **Secondary features (polyelectrolyte, device geometry)**
+
+---
+
+## 5. Methodological Insights
+
+* Cross-paper datasets exhibit strong noise and limited generalizability
+* Standard K-fold CV is unstable; ShuffleSplit is more appropriate
+* Feature importance must be interpreted alongside grouped statistical analysis
+* Many apparent correlations are explained away after conditioning on mechanism
+
+---
+
+## 6. Current Focus (Transition Stage)
+
+Current work is transitioning from:
+
+* Feature addition (V1–V5)
+
+to:
+
+* **Feature disentanglement and mechanism diagnosis**
+
+Ongoing investigations:
+
+* Decomposition of asymmetry_origin into:
+
+  * environmental gradient
+  * chemical asymmetry
+  * electrode asymmetry
+
+* Decomposition of ion_origin into:
+
+  * intrinsic (material)
+  * electrolyte-driven
+  * water-derived
+
+Goal:
+
+* Identify variables that remain predictive within fixed mechanism regimes
+
+---
+
+## 7. Next Steps (Phase 1 → Phase 2 Bridge)
+
+Before entering Phase 2 (multi-model comparison), remaining tasks:
+
+* Evaluate asymmetry-related features (Model V6)
+* Assess whether asymmetry provides independent signal beyond mechanism
+* Test ion_origin with and without mechanism features (confounding check)
+
+---
+
+## 8. Strategic Direction
+
+This project is evolving toward:
+
+> A mechanism-oriented ML study rather than a pure predictive model
+
+Key objective:
+
+* Disentangle hydrovoltaic mechanisms using heterogeneous literature data
+* Identify robust, model-independent physical drivers of performance
+
+---
+
+## 9. Key Insight (Phase 1)
+
+> Many commonly assumed important features (e.g., polyelectrolyte, device structure) do not independently control performance.
+
+Instead:
+
+> Performance is governed primarily by ion transport regime and underlying mechanism, with other variables acting as secondary or proxy descriptors.
 
 ---
