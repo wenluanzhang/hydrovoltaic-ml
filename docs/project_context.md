@@ -214,3 +214,199 @@ Instead:
 > Performance is governed primarily by ion transport regime and underlying mechanism, with other variables acting as secondary or proxy descriptors.
 
 ---
+
+# Phase 1 Final Summary (Model V7)
+
+## Date
+2026-04-20
+
+---
+
+## 1. Objective
+
+The goal of Phase 1 was to construct a curated hydrovoltaic dataset and identify robust predictors of device performance using machine learning.
+
+The focus evolved from exploratory modeling to a mechanism-oriented analysis framework.
+
+---
+
+## 2. Dataset Status
+
+After cleaning, the dataset contains ~150–200 samples.
+
+Key preprocessing decisions:
+
+- Removal of active electrode systems (galvanic cell behavior)
+- Exclusion of pulse-output data
+- Simplification of mechanism labels into `mechanism_simple`
+- Feature restructuring (asymmetry, ion origin, polyelectrolyte)
+
+The dataset remains:
+
+- Small-scale
+- Heterogeneous (cross-paper)
+- Mechanism-mixed
+
+---
+
+## 3. Target Engineering
+
+The target variable is defined as:
+
+P ≈ Voc × Jsc / 4
+
+and transformed as:
+
+log_estimated_power_density
+
+Key outcome:
+
+- This target significantly improves model learnability compared to Voc alone
+- It better reflects overall device performance
+
+---
+
+## 4. Validation Upgrade (Model V7)
+
+Model V7 introduces a more robust evaluation framework:
+
+- StratifiedShuffleSplit (by mechanism)
+- 50 repeated splits
+- Reporting:
+  - mean CV R²
+  - std
+  - min / max
+- Distribution-based evaluation (boxplots)
+
+Key observation:
+
+- Model performance is highly sensitive to data splitting
+- Variance is large due to dataset heterogeneity
+
+---
+
+## 5. Feature Diagnosis
+
+### 5.1 Primary drivers
+
+Consistently important variables:
+
+- mechanism_simple
+- ion_type
+- structure_class
+
+These variables define the dominant physical regime.
+
+---
+
+### 5.2 Internal resistance
+
+The variable:
+
+log_internal_resistance_Mohm
+
+shows:
+
+- Strong improvement in predictive performance
+- Reduced variance in cross-validation
+
+Interpretation:
+
+- Acts as an integrated descriptor of transport limitation
+- Physically coupled to current and power output
+- Not explicitly part of the target formula, but indirectly embedded
+
+Note:
+
+- Should be interpreted as a performance-related descriptor, not a purely independent variable
+
+---
+
+### 5.3 Proxy variables
+
+Variables such as:
+
+- device_structure
+
+show:
+
+- Weak improvement in mean R²
+- Increased variance
+
+Interpretation:
+
+- Represent underlying mechanism or geometry indirectly
+- Do not provide independent predictive power
+
+---
+
+### 5.4 Unstable / noisy variables
+
+Variables such as:
+
+- asymmetry_origin (decomposed)
+- ion_origin (decomposed)
+
+show:
+
+- No improvement in performance
+- Increased instability
+
+Conclusion:
+
+- Current definitions are not robust
+- These variables are excluded from the main model
+
+---
+
+## 6. Final Model Definitions
+
+### Model A — Mechanistic baseline
+
+Features:
+- mechanism_simple
+- ion_type
+- structure_class
+- core material/device descriptors
+
+Purpose:
+- Capture fundamental physical drivers
+- Enable interpretability
+
+---
+
+### Model B — Augmented model
+
+Features:
+- Model A + log_internal_resistance_Mohm
+
+Purpose:
+- Improve predictive performance
+- Incorporate device-level transport information
+
+---
+
+## 7. Key Scientific Insight
+
+Hydrovoltaic performance is primarily governed by:
+
+1. Ion transport mechanism
+2. Ionic environment
+3. Material structure
+
+Many commonly assumed variables (e.g., device geometry, asymmetry labels)
+do not independently control performance, but instead act as proxy descriptors.
+
+---
+
+## 8. Conclusion
+
+Phase 1 establishes:
+
+- A curated hydrovoltaic dataset
+- A robust validation framework (Model V7)
+- A minimal and physically interpretable feature set
+
+This provides a solid foundation for Phase 2:
+
+→ multi-model comparison and further performance optimization
