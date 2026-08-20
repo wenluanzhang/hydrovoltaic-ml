@@ -1,0 +1,87 @@
+{
+  "purpose": "Revision-only sensitivity analysis excluding the five sparse hybrid structure records; no production result is overwritten.",
+  "canonical_dataset_path": "data/processed/hydrovoltaic_dataset_phase2_input_utf8.csv",
+  "canonical_dataset_sha256_before_and_after": "accaf82f15d77f7a90117192d3468f2f67e174cdc436abb27072954b39e74203",
+  "canonical_dataset_modified": false,
+  "sparse_categories_excluded_without_merging": [
+    "hydrogel + porous",
+    "hydrogel + film"
+  ],
+  "n_full_dataset": 159,
+  "n_excluded_sparse_hybrid": 5,
+  "n_retained_full_dataset": 154,
+  "n_observed_R_retained": 107,
+  "excluded_row_indices": [
+    123,
+    134,
+    137,
+    139,
+    144
+  ],
+  "retained_row_index_sha256": "a53a9376b7b0c4fbb146dfe5a7a2e888bd752d15dc9374edac88332efa7341d1",
+  "target": "log_estimated_power_density",
+  "resistance_feature": "log_internal_resistance_Mohm",
+  "model_A_features": [
+    "material_class",
+    "structure_class",
+    "built_in_asymmetry",
+    "inorganic_electrolyte_present",
+    "polyelectrolyte_present",
+    "has_anionic",
+    "has_cationic",
+    "has_zwitterionic",
+    "mechanism_simple",
+    "water_interaction_mode",
+    "top_electrode",
+    "bottom_electrode",
+    "electrode_symmetry",
+    "metal_electrode",
+    "ionic_groups",
+    "ion_type"
+  ],
+  "model_B_features": [
+    "material_class",
+    "structure_class",
+    "built_in_asymmetry",
+    "inorganic_electrolyte_present",
+    "polyelectrolyte_present",
+    "has_anionic",
+    "has_cationic",
+    "has_zwitterionic",
+    "mechanism_simple",
+    "water_interaction_mode",
+    "top_electrode",
+    "bottom_electrode",
+    "electrode_symmetry",
+    "metal_electrode",
+    "ionic_groups",
+    "ion_type",
+    "log_internal_resistance_Mohm"
+  ],
+  "model_A_model_B_validation": "StratifiedShuffleSplit(n_splits=50, test_size=0.2, random_state=42)",
+  "model_A_model_B_split_fingerprint": "7e2de3de11d9492ce61e8535a494d3c89f14d8f9ced3b3bb22e64ae7e1a19ca7",
+  "ablation_validation": "StratifiedShuffleSplit(n_splits=50, test_size=0.2, random_state=42)",
+  "SHAP_method": "RandomForestRegressor(n_estimators=300, random_state=42), stratified 80/20 holdout, TreeExplainer on transformed held-out data",
+  "explicit_descriptor_model": "Figure 6 Linear/Polynomial ElasticNetCV pipelines, 80/20 split random_state=42 and shuffled KFold(5, random_state=42); virtual candidates limited to porous, film, hydrogel.",
+  "structure_R_test": "Kruskal-Wallis across porous, film, hydrogel; same test family as existing Figure 5 structure comparison.",
+  "existing_output_usage_audit": {
+    "Fig_2_and_Table_S3": "descriptive category display/counts and structure-performance visualization",
+    "Fig_3_Model_A_B_ablation_SHAP_and_Tables_S5_S6": "model learning and inference; structure_class enters Model A/B and ablation, and its one-hot features may enter SHAP",
+    "Fig_5_and_Table_S7": "observed-R structure group summary and Kruskal-Wallis statistical inference",
+    "Fig_6_and_Table_S8": "explicit descriptor-model learning/coefficients and virtual-design candidate generation"
+  },
+  "production_comparison_sources": {
+    "common112_modelA_modelB": "results/revision/R1C2/modelA_modelB_common112.csv",
+    "common112_ablation": "results/revision/R1C2/feature_block_ablation_common112.csv",
+    "common112_shap": "results/revision/R1C2/shap_importance_common112.csv",
+    "figure5_structure": "results/figure5_R_origin/fig5C_structure_class_summary.csv",
+    "figure6_performance": "results/figure6_virtual_design/fig6B_linear_vs_polynomial_model_comparison.csv"
+  },
+  "baseline_rows_loaded": {
+    "modelA_modelB": 4,
+    "ablation": 6,
+    "shap": 85,
+    "structure_R": 5,
+    "descriptor_performance": 2
+  }
+}

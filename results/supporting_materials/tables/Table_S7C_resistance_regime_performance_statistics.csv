@@ -1,0 +1,3 @@
+﻿R_regime,threshold,count,mean_log_P_est,median_log_P_est,std_log_P_est,mean_log_R,median_log_R
+low_R,"log(R) = -1; low_R if log(R) <= -1, high_R if log(R) > -1",55,0.41355319727310225,0.4548450123925122,0.9572200419243987,-1.807238986644877,-1.7212463990471711
+high_R,"log(R) = -1; low_R if log(R) <= -1, high_R if log(R) > -1",57,-0.850090964471178,-0.8239058456574236,1.2438732768915786,0.4253537984401491,0.1760912590556812

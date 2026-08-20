@@ -1,0 +1,45 @@
+{
+  "dataset_path": "data/processed/hydrovoltaic_dataset_phase2_input_utf8.csv",
+  "dataset_sha256_before": "accaf82f15d77f7a90117192d3468f2f67e174cdc436abb27072954b39e74203",
+  "dataset_sha256_after": "accaf82f15d77f7a90117192d3468f2f67e174cdc436abb27072954b39e74203",
+  "n_total": 159,
+  "n_R_reported": 112,
+  "n_R_missing": 47,
+  "group_row_id_method": "zero-based canonical CSV row index stored in resistance_availability_row_ids.csv",
+  "R_reported_row_ids_sha256": "73e9768c3e01b0669161c8f9fac092117bc2e583ea3c9396a173a5690fdefc04",
+  "R_missing_row_ids_sha256": "5a1a1e45d3843be4b03c723b5ed27df6c34962bf101a791be76b4455d296811e",
+  "resistance_imputation": "none",
+  "selection_variables": [
+    "log_estimated_power_density",
+    "mechanism_simple",
+    "structure_class",
+    "ion_type",
+    "inorganic_electrolyte_present",
+    "material_class",
+    "reported_power_density_available"
+  ],
+  "target_test": "Mann-Whitney U (two-sided), with rank-biserial correlation",
+  "categorical_test_policy": "Fisher's exact for sparse 2x2 tables; chi-square otherwise, with sparse RxC approximation flags recorded.",
+  "reporting_completeness": "reported_power_density_available only; no arbitrary global reporting-quality score was constructed.",
+  "subsampling": {
+    "master_seed": 20260818,
+    "repetitions": 300,
+    "subsample_size": 90,
+    "sampling": "StratifiedShuffleSplit train_size=90, stratified by mechanism_simple, without replacement",
+    "model_family": "Elastic Net from validated R1C2 Model A/B comparison",
+    "model_settings": "ElasticNet(alpha=0.1, l1_ratio=0.5, random_state=42, max_iter=10000)",
+    "descriptor_sets": "Validated R1C2 Model A and Model B; Model B adds observed log(R) only.",
+    "validation": "5 StratifiedShuffleSplit 80/20 folds per repetition; Model A and Model B use identical folds within each repetition."
+  },
+  "shap_robustness": {
+    "repetitions": 50,
+    "model_family": "Random Forest",
+    "method": "Validated R1C2 SHAP method: RandomForestRegressor(n_estimators=300), stratified 80/20 holdout, TreeExplainer on transformed held-out predictors."
+  },
+  "R1C2_read_only_hashes": {
+    "modelA_modelB_common112.csv": "0c94c21665d64d12727537fdb4b5a0f2825fb497a315730e48ebfe6aa7c40612",
+    "shap_importance_common112.csv": "0aa9942e5a3a8017153882dcdad883423f9c4b983768ae72668953643663b5ed",
+    "analysis_metadata.json": "ac118faa912b2eb073cc35d2b9b3739378b6ce9c103419197fe2bc86e00c8792"
+  },
+  "candidate_figure": "Fig_S6_R3C3_selection_and_robustness.pdf/svg/png"
+}

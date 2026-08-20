@@ -1,0 +1,2 @@
+﻿n_repetitions,subsample_n,model_family,delta_r2_median,delta_r2_mean,delta_r2_iqr,delta_r2_p05,delta_r2_p95,fraction_delta_r2_gt_0,fraction_all_cv_split_deltas_gt_0
+300,90,Elastic Net,0.12692420304978094,0.12442982231673914,0.09288704942814749,0.0038252760852556197,0.23522433765556827,0.96,0.43

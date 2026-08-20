@@ -1,0 +1,78 @@
+{
+  "dataset_path": "data/processed/hydrovoltaic_dataset_phase2_input_utf8.csv",
+  "dataset_sha256": "accaf82f15d77f7a90117192d3468f2f67e174cdc436abb27072954b39e74203",
+  "n_observed_resistance": 112,
+  "row_identification_method": "zero-based canonical CSV row index stored as canonical_row_index; paper_doi retained for source-study traceability",
+  "row_index_sha256": "73e9768c3e01b0669161c8f9fac092117bc2e583ea3c9396a173a5690fdefc04",
+  "target": "log_estimated_power_density",
+  "resistance_feature": "log_internal_resistance_Mohm",
+  "model_A_features": [
+    "material_class",
+    "structure_class",
+    "built_in_asymmetry",
+    "inorganic_electrolyte_present",
+    "polyelectrolyte_present",
+    "has_anionic",
+    "has_cationic",
+    "has_zwitterionic",
+    "mechanism_simple",
+    "water_interaction_mode",
+    "top_electrode",
+    "bottom_electrode",
+    "electrode_symmetry",
+    "metal_electrode",
+    "ionic_groups",
+    "ion_type"
+  ],
+  "model_B_features": [
+    "material_class",
+    "structure_class",
+    "built_in_asymmetry",
+    "inorganic_electrolyte_present",
+    "polyelectrolyte_present",
+    "has_anionic",
+    "has_cationic",
+    "has_zwitterionic",
+    "mechanism_simple",
+    "water_interaction_mode",
+    "top_electrode",
+    "bottom_electrode",
+    "electrode_symmetry",
+    "metal_electrode",
+    "ionic_groups",
+    "ion_type",
+    "log_internal_resistance_Mohm"
+  ],
+  "submitted_missingness_indicator": "has_internal_resistance omitted from common-112 Model B because it is constant 1 for all selected records; Model B therefore adds log(R) only.",
+  "random_seed": 42,
+  "model_A_model_B_validation": "StratifiedShuffleSplit(n_splits=50, test_size=0.2, random_state=42)",
+  "model_A_model_B_split_fingerprint": "99c6bc2d82d00a5732d570755ecb2a6258bdcca222d62c123cb683eee9163b21",
+  "Fig3A_validation": "StratifiedShuffleSplit(n_splits=30, test_size=0.2, random_state=42)",
+  "ablation_validation": "StratifiedShuffleSplit(n_splits=50, test_size=0.2, random_state=42)",
+  "SHAP_method": "RandomForestRegressor(n_estimators=300, random_state=42), stratified 80/20 holdout, shap.TreeExplainer on transformed held-out data",
+  "missing_value_handling": {
+    "internal_resistance": "No imputation. Rows without valid log_internal_resistance_Mohm are excluded before all analyses.",
+    "other_numeric_descriptors": "SimpleImputer(strategy='median') within each training fold, matching submitted preprocessing.",
+    "categorical_descriptors": "SimpleImputer(strategy='most_frequent') plus OneHotEncoder(handle_unknown='ignore') within each training fold, matching submitted preprocessing.",
+    "observed_nonresistance_missing_counts": {}
+  },
+  "model_settings": {
+    "Model_A_Model_B_default": "ElasticNet(alpha=0.1,l1_ratio=0.5); SVR(rbf,C=10,epsilon=0.1); RF(n_estimators=300); XGB(n_estimators=300,max_depth=4,learning_rate=0.05,subsample=0.8,colsample_bytree=0.8)",
+    "Fig3A_tuned": "ElasticNet(alpha=0.1,l1_ratio=0.8); SVR(rbf,C=1,epsilon=0.01); RF(n_estimators=100,max_depth=5,min_samples_split=5,min_samples_leaf=1); XGB(n_estimators=100,max_depth=3,learning_rate=0.03,subsample=1.0,colsample_bytree=1.0)",
+    "Ablation": "RandomForestRegressor(n_estimators=300,max_depth=10,min_samples_split=2,min_samples_leaf=1,random_state=42)"
+  },
+  "Fig3A_requires_revision": true,
+  "Fig3A_reason": "Submitted Fig. 3A is a tuned Model-B comparison and therefore includes log(R) with all-159 preprocessing-based imputation; common-112 results are required for a resistance-importance argument.",
+  "submitted_reference_files": [
+    "results/figure3_model_comparison/fig3A_tuned_model_comparison.csv",
+    "results/figure3_model_comparison/fig3B_modelA_modelB_descriptor_augmentation.csv",
+    "results/figure3_model_comparison/fig3C_feature_block_ablation.csv",
+    "results/figure3_model_comparison/fig3D_SHAP_descriptor_importance.csv"
+  ],
+  "SI_entries_requiring_update_if_adopted": {
+    "Table_S4": "All four Fig. 3A model-family CV R2 mean/std entries, because Fig. 3A is Model B and now uses n=112 observed-R records.",
+    "Table_S5A": "All four Model A vs Model B CV R2 and Delta entries.",
+    "Table_S5B": "Full model and all five feature-block ablation entries.",
+    "Table_S6": "Full SHAP descriptor ranking and the log(R)-to-second-feature ratio derived from it."
+  }
+}

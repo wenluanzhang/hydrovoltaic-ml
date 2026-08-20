@@ -1,0 +1,81 @@
+﻿rank,descriptor,encoded_feature,mean_abs_shap,n_rows_observed_R,holdout_random_state
+1,log(R),resistance__log_internal_resistance_Mohm,0.44685884243476975,107,42
+2,Other cation,cat__ion_type_other_cation,0.13311401220355817,107,42
+3,Top Electrode Cu,cat__top_electrode_Cu,0.11004035306878433,107,42
+4,Bottom Electrode Cu,cat__bottom_electrode_Cu,0.09863578998629072,107,42
+5,Film structure,cat__structure_class_film,0.08752100874049634,107,42
+6,Inorganic Electrolyte Present,num__inorganic_electrolyte_present,0.06338996811521667,107,42
+7,Material Class Biomass,cat__material_class_biomass,0.05071244119101786,107,42
+8,Ion-gradient label,cat__mechanism_simple_ion_gradient,0.05014475060638393,107,42
+9,"Ionic Groups Carboxyl, Hydroxyl","cat__ionic_groups_carboxyl, hydroxyl",0.04550760819466284,107,42
+10,Ionic Groups Sulfonate,cat__ionic_groups_sulfonate,0.044005517838337005,107,42
+11,Water Interaction Mode Evaporation Driven,cat__water_interaction_mode_evaporation_driven,0.025755867905441168,107,42
+12,Streaming label,cat__mechanism_simple_streaming,0.024866891051975735,107,42
+13,Porous structure,cat__structure_class_porous,0.0243052162444045,107,42
+14,Proton,cat__ion_type_proton,0.02269659649142566,107,42
+15,Has Anionic,num__has_anionic,0.02074775528348251,107,42
+16,Metal Electrode,num__metal_electrode,0.01812893069683739,107,42
+17,"Ionic Groups Carboxyl, Hydroxyl ","cat__ionic_groups_carboxyl, hydroxyl ",0.016311112057134317,107,42
+18,Bottom Electrode Ag,cat__bottom_electrode_Ag,0.014952390315560725,107,42
+19,"Ionic Groups Carboxyl, Hydroxyl, Amino","cat__ionic_groups_carboxyl, hydroxyl, amino",0.013981452906786903,107,42
+20,Electrode Symmetry,num__electrode_symmetry,0.013777136007592382,107,42
+21,Material Class Polymer,cat__material_class_polymer,0.013604762820669502,107,42
+22,Ionic Groups Hydroxyl,cat__ionic_groups_hydroxyl,0.012362182443319013,107,42
+23,Material Class Metal Oxide,cat__material_class_metal oxide,0.012092815566109215,107,42
+24,Built In Asymmetry,num__built_in_asymmetry,0.011780416036997431,107,42
+25,Has Zwitterionic,num__has_zwitterionic,0.011130702940790995,107,42
+26,Top Electrode Carbon,cat__top_electrode_Carbon,0.010516464264859965,107,42
+27,Top Electrode Au,cat__top_electrode_Au,0.010062803733370157,107,42
+28,Material Class Semiconductor,cat__material_class_semiconductor,0.009893044444493182,107,42
+29,"Ionic Groups Sulfonate, Hydroxyl","cat__ionic_groups_sulfonate, hydroxyl",0.008687725687895546,107,42
+30,Material Class Carbon,cat__material_class_carbon,0.00859349819624493,107,42
+31,"Ionic Groups Hydroxyl, Ti-O, Sn-O ","cat__ionic_groups_hydroxyl, Ti-O, Sn-O ",0.008225494256132527,107,42
+32,Bottom Electrode Carbon,cat__bottom_electrode_Carbon,0.008131806320419209,107,42
+33,Anion,cat__ion_type_anion,0.00785923389148391,107,42
+34,Water Interaction Mode Vapor Adsorption,cat__water_interaction_mode_vapor_adsorption,0.007647112795222301,107,42
+35,Bottom Electrode Pt,cat__bottom_electrode_Pt,0.007358316889481472,107,42
+36,Has Cationic,num__has_cationic,0.007279422398350176,107,42
+37,Top Electrode Pt,cat__top_electrode_Pt,0.006994067951901461,107,42
+38,Top Electrode Ag,cat__top_electrode_Ag,0.006692223932285884,107,42
+39,Material Class Others,cat__material_class_others,0.005402599062241928,107,42
+40,Bottom Electrode To,cat__bottom_electrode_TO,0.005321063989651333,107,42
+41,Bottom Electrode Au,cat__bottom_electrode_Au,0.004957881723394461,107,42
+42,Polyelectrolyte Present,num__polyelectrolyte_present,0.004901966302206439,107,42
+43,"Ionic Groups Amino, Hydroxyl","cat__ionic_groups_amino, hydroxyl",0.004725875074637783,107,42
+44,Ionic Groups Residual Hydrogen On Mos2,cat__ionic_groups_residual hydrogen on MoS2,0.004130238719063367,107,42
+45,Bottom Electrode Ti,cat__bottom_electrode_Ti,0.004056229467871777,107,42
+46,Ionic Groups Silanol ,cat__ionic_groups_silanol ,0.003842346385093716,107,42
+47,Structure Class Hydrogel,cat__structure_class_hydrogel,0.0037865386793981145,107,42
+48,Bottom Electrode Al,cat__bottom_electrode_Al,0.003689250539471456,107,42
+49,"Ionic Groups Carboxyl, Quaternary Ammonium, Amino, Hydroxyl ","cat__ionic_groups_carboxyl, quaternary ammonium, amino, hydroxyl ",0.0036322072953569426,107,42
+50,Water Interaction Mode Liquid Contact,cat__water_interaction_mode_liquid_contact,0.003049043658103735,107,42
+51,"Ionic Groups Amino, Hydroxyl ","cat__ionic_groups_amino, hydroxyl ",0.0027880655199297995,107,42
+52,Top Electrode Steel,cat__top_electrode_Steel,0.0026117339288145884,107,42
+53,Top Electrode Al,cat__top_electrode_Al,0.0026069405146419747,107,42
+54,Top Electrode Cnt,cat__top_electrode_CNT,0.0021636933654846425,107,42
+55,Bottom Electrode Cnt,cat__bottom_electrode_CNT,0.002131644604188696,107,42
+56,"Ionic Groups Carboxyl, Hydroxyl, Sulfonate, Amino","cat__ionic_groups_carboxyl, hydroxyl, sulfonate, amino",0.0019475774381644791,107,42
+57,Bottom Electrode Steel,cat__bottom_electrode_Steel,0.0019002222589679894,107,42
+58,Ionic Groups Silanol Hydroxyl,cat__ionic_groups_silanol hydroxyl,0.001888961961683345,107,42
+59,"Ionic Groups Silanol, Carboxyl, Hydroxyl","cat__ionic_groups_silanol, carboxyl, hydroxyl",0.0016960158024111954,107,42
+60,"Ionic Groups Hydroxyl, Carboxyl, Amino","cat__ionic_groups_hydroxyl, carboxyl, amino",0.001661682612022496,107,42
+61,Material Class Mof/Cof,cat__material_class_MOF/COF,0.001287164336366258,107,42
+62,"Ionic Groups Imidazole, Sulfonate, Carboxyl, Hydroxyl","cat__ionic_groups_imidazole, sulfonate, carboxyl, hydroxyl",0.0012030701715400375,107,42
+63,Top Electrode Ti,cat__top_electrode_Ti,0.0009819593331841117,107,42
+64,"Ionic Groups Carboxyl, Hydroxyl, Quaternary Ammonium","cat__ionic_groups_carboxyl, hydroxyl, quaternary_ammonium",0.0008218362685071365,107,42
+65,"Ionic Groups Carboxyl, Hydroxyl, Amino ","cat__ionic_groups_carboxyl, hydroxyl, amino ",0.0007959255882562498,107,42
+66,Ionic Groups Carboxyl,cat__ionic_groups_carboxyl,0.0007039141624604537,107,42
+67,"Ionic Groups Hydroxyl, Silanol, Sulfonic Acid","cat__ionic_groups_hydroxyl, silanol, sulfonic acid",0.0006615637280572418,107,42
+68,"Ionic Groups Hydroxyl, Carboxyl, Amino ","cat__ionic_groups_hydroxyl, carboxyl, amino ",0.0006363585316782561,107,42
+69,"Ionic Groups Hydroxyl, Cyano","cat__ionic_groups_hydroxyl, cyano",0.0005184060931900526,107,42
+70,"Ionic Groups Sulfonate, Quaternary Ammonium, Hydroxyl ","cat__ionic_groups_sulfonate, quaternary ammonium, hydroxyl ",0.00043752870451064065,107,42
+71,"Ionic Groups Sulfonate, Carboxyl, Hydroxyl ","cat__ionic_groups_sulfonate, carboxyl, hydroxyl ",0.0004254623879795904,107,42
+72,"Ionic Groups Carboxyl, Hydroxyl, Sulfonate","cat__ionic_groups_carboxyl, hydroxyl, sulfonate",0.0004155967234219114,107,42
+73,Top Electrode Ni,cat__top_electrode_Ni,0.0002980100828253419,107,42
+74,"Ionic Groups Sulfonate, Phosphate, Hydroxyl ","cat__ionic_groups_sulfonate, phosphate, hydroxyl ",0.00018819264652960855,107,42
+75,"Ionic Groups Carboxyl, Hydroxyl, Imidazolium, Bromide ","cat__ionic_groups_carboxyl, hydroxyl, imidazolium, bromide ",0.0001742000514222087,107,42
+76,"Ionic Groups Hydroxyl, Sulfonate ","cat__ionic_groups_hydroxyl, sulfonate ",0.00015486509743302437,107,42
+77,Bottom Electrode Ni,cat__bottom_electrode_Ni,0.0001269251410078685,107,42
+78,"Ionic Groups Carboxyl, Hydroxyl, Imidazolium, Chloride ","cat__ionic_groups_carboxyl, hydroxyl, imidazolium, chloride ",0.00010543288029676365,107,42
+79,Top Electrode To,cat__top_electrode_TO,6.69410055582847e-05,107,42
+80,Ionic Groups Ammonium,cat__ionic_groups_ammonium,5.161949730062745e-05,107,42

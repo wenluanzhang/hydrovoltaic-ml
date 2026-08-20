@@ -1,0 +1,11 @@
+﻿feature,coefficient,abs_coefficient
+num__log_R,-0.4394347724935136,0.4394347724935136
+cat__structure_clean_film,0.3695641105594918,0.3695641105594918
+cat__structure_clean_porous,-0.2995539061199157,0.2995539061199157
+num__inorganic_electrolyte_present_clean,0.14478787842560967,0.14478787842560967
+cat__ion_type_clean_other_cation,0.1432369995437003,0.1432369995437003
+cat__mechanism_clean_ion_gradient,0.10173030726077206,0.10173030726077206
+cat__mechanism_clean_streaming,-0.10171041959776,0.10171041959776
+cat__ion_type_clean_anion,-0.07409023924767509,0.07409023924767509
+cat__structure_clean_hydrogel,-0.0,0.0
+cat__ion_type_clean_proton,-0.0,0.0
