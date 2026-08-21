@@ -1,0 +1,11 @@
+﻿category_type,category,count,percent
+mechanism_label,ion_gradient,107,67.29559748427673
+mechanism_label,streaming,52,32.70440251572327
+structure_class,porous,118,74.21383647798741
+structure_class,film,22,13.836477987421384
+structure_class,hydrogel,14,8.80503144654088
+structure_class,hydrogel + porous,4,2.515723270440252
+structure_class,hydrogel + film,1,0.628930817610063
+ion_type,proton,96,60.37735849056604
+ion_type,other_cation,54,33.9622641509434
+ion_type,anion,9,5.660377358490567

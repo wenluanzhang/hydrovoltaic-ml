@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite it using the metadata below."
+title: "Transport-Centered Performance in Hydrovoltaic Energy Harvesting: A Data-Driven Assessment Using Interpretable Machine Learning"
+type: software
+authors:
+  - family-names: Zhang
+    given-names: Wenluan
+repository-code: "https://github.com/wenluanzhang/hydrovoltaic-ml"
+url: "https://github.com/wenluanzhang/hydrovoltaic-ml"
+license: MIT
+preferred-citation:
+  type: software
+  title: "Transport-Centered Performance in Hydrovoltaic Energy Harvesting: A Data-Driven Assessment Using Interpretable Machine Learning"
+  authors:
+    - family-names: Zhang
+      given-names: Wenluan
+  repository-code: "https://github.com/wenluanzhang/hydrovoltaic-ml"

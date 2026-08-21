@@ -1,0 +1,9 @@
+﻿feature,coefficient,abs_coefficient,label
+num__log_R,-0.43943477249351359,0.43943477249351359,log(R)
+cat__structure_clean_film,0.36956411055949179,0.36956411055949179,Structure: film
+cat__structure_clean_porous,-0.29955390611991572,0.29955390611991572,Structure: porous
+num__inorganic_electrolyte_present_clean,0.14478787842560961,0.14478787842560961,Inorganic electrolyte
+cat__ion_type_clean_other_cation,0.14323699954370031,0.14323699954370031,Ion: other cation
+cat__mechanism_clean_ion_gradient,0.10173030726077199,0.10173030726077199,Mechanism: ion gradient
+cat__mechanism_clean_streaming,-0.10171041959776,0.10171041959776,Mechanism: streaming
+cat__ion_type_clean_anion,-0.074090239247674994,0.074090239247674994,Ion: anion

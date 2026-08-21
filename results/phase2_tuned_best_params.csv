@@ -1,0 +1,5 @@
+﻿Model,model__alpha,model__l1_ratio,model__C,model__epsilon,model__kernel,model__max_depth,model__min_samples_leaf,model__min_samples_split,model__n_estimators,model__colsample_bytree,model__learning_rate,model__subsample
+ElasticNet,0.1,0.8,,,,,,,,,,
+SVR,,,1.0,0.01,rbf,,,,,,,
+RandomForest,,,,,,5.0,1.0,5.0,100.0,,,
+XGBoost,,,,,,3.0,,,100.0,1.0,0.03,1.0

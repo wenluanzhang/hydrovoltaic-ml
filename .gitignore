@@ -1,38 +1,48 @@
-# Python
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
+# Peer-review / revision working files
+docs/revision/
+docs/revision_repo_audit.md
+docs/public_release_cleanup_audit.md
+docs/public_release_manifest.md
+docs/project_context*.md
+docs/MANUSCRIPT.pdf
+docs/Reviewer_comments.pdf
+docs/Supplementary_Material.pdf
+repo_structure.txt
+
+# Temporary files
+tmp/
+test.txt
+*.tmp
+~$*
 
 # Jupyter
 .ipynb_checkpoints/
+**/.ipynb_checkpoints/
+notebooks/*.html
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
 
 # Virtual environments
 venv/
 .venv/
 env/
 
-# VS Code
+# IDE / local agent state
 .vscode/
+.idea/
+.agents/
+.codex/
 
 # OS files
 .DS_Store
 Thumbs.db
 
-# Data files
-data/raw/*
-data/processed/*
-
-# Keep structure
-!data/raw/.gitkeep
-!data/processed/.gitkeep
-!data/README.md
-
-# Results
-results/*
-!results/.gitkeep
-
-# Figures (optional)
-figures/*.png
-figures/*.jpg
-figures/*.pdf
+# Redundant diagnostic and draft renders (canonical data and final outputs remain visible)
+results/figure_style_test/
+results/**/style_test/
+results/**/pre_revision_production_snapshot/
+results/**/*_draft*.png
+results/**/*_draft*.pdf

@@ -1,0 +1,10 @@
+﻿structure,log_R,pred_log_P,ion_type,electrolyte,design_label
+film,-2.0,1.0894539253981976,not specified,not specified,film | not specified | not specified
+film,-1.0,0.76504917014648,not specified,not specified,film | not specified | not specified
+film,0.0,0.4406444148947623,not specified,not specified,film | not specified | not specified
+hydrogel,-2.0,0.7198898148387057,not specified,not specified,hydrogel | not specified | not specified
+hydrogel,-1.0,0.3954850595869882,not specified,not specified,hydrogel | not specified | not specified
+hydrogel,0.0,0.0710803043352706,not specified,not specified,hydrogel | not specified | not specified
+porous,-2.0,0.42033590871879,not specified,not specified,porous | not specified | not specified
+porous,-1.0,0.0959311534670725,not specified,not specified,porous | not specified | not specified
+porous,0.0,-0.2284736017846451,not specified,not specified,porous | not specified | not specified

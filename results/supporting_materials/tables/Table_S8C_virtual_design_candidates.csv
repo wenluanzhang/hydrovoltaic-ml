@@ -1,0 +1,11 @@
+﻿rank,structure_clean,ion_type_clean,inorganic_electrolyte_present_clean,log_R,R_regime,predicted_log_P_est
+1,film,other_cation,1,-2,low_R,1.0894539253981976
+2,film,proton,1,-2,low_R,0.94621692585449724
+3,film,anion,1,-2,low_R,0.87212668660682224
+4,film,other_cation,0,-2,low_R,0.78690219688004215
+5,film,other_cation,1,-1,low_R,0.76504917014648
+6,hydrogel,other_cation,1,-2,low_R,0.71988981483870573
+7,film,proton,0,-2,low_R,0.64366519733634187
+8,film,proton,1,-1,low_R,0.62181217060277971
+9,hydrogel,proton,1,-2,low_R,0.57665281529500545
+10,film,anion,0,-2,low_R,0.56957495808866676

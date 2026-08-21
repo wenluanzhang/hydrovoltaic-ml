@@ -1,0 +1,10 @@
+﻿structure,electrolyte,n,median_log_R,x,y
+film,with electrolyte,1,-2.0,1,1
+film,without electrolyte,12,-0.9430283238465815,0,1
+hydrogel,with electrolyte,6,-2.0,1,2
+hydrogel,without electrolyte,4,-2.1428351201273834,0,2
+hydrogel + film,without electrolyte,1,-1.3979400086720375,0,4
+hydrogel + porous,with electrolyte,3,-2.0,1,3
+hydrogel + porous,without electrolyte,1,-1.6989700043360187,0,3
+porous,with electrolyte,31,-1.3187587626244128,1,0
+porous,without electrolyte,53,0.041392685158225,0,0

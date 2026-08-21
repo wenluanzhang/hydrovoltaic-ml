@@ -1,0 +1,3 @@
+﻿validation_setting,R2_CV_mean,R2_CV_std
+Repeated random split,0.164,0.179
+Grouped by paper,0.106,0.198

@@ -1,0 +1,15 @@
+﻿column_name,definition,unit,data_type,allowed_values,missing_handling,notes
+paper_doi,Digital object identifier or publication identifier for grouping records by source study.,,string,free text,records without source identifier should be checked manually,Used for paper-level validation where available.
+voc_V,Open-circuit voltage reported for the device.,V,numeric,> 0,required for final modeled dataset,Used to construct estimated power density.
+jsc_uA_cm2,Short-circuit current density reported for the device.,μA cm−2,numeric,> 0,required for final modeled dataset,Used to construct estimated power density.
+estimated_power_density_uW_cm2,Estimated power density calculated from open-circuit voltage and short-circuit current density.,μW cm−2,numeric,> 0,computed from Voc and Jsc,Defined as P_est ≈ Voc × Jsc / 4 under a linear I–V approximation.
+log_estimated_power_density,Base-10 logarithm of estimated power density.,log10(μW cm−2),numeric,real number,computed when estimated_power_density_uW_cm2 > 0,Main modeling target.
+power_density_uW_cm2,"Reported power density from the original study, when available.",μW cm−2,numeric,>= 0,not required for final modeled dataset,Used as a reported metric but not as the primary target because reporting is incomplete.
+internal_resistance_Mohm,Internal resistance reported or estimated for the device.,MΩ,numeric,> 0,available subset used for resistance analysis,Key transport descriptor.
+log_internal_resistance_Mohm,Base-10 logarithm of internal resistance in MΩ.,log10(MΩ),numeric,real number,computed when internal_resistance_Mohm > 0,Used as log(R) in the manuscript.
+mechanism_simple,Simplified literature-reported mechanism label.,,categorical,ion_gradient; streaming,records with ambiguous mechanism were harmonized manually,"Treated as reported label, not as ground-truth mechanism."
+structure_class,Device structural class.,,categorical,porous; film; hydrogel; hydrogel + porous; hydrogel + film,harmonized manually from literature description,Used in descriptor analysis and structure-related comparisons.
+ion_type,Primary mobile ion environment or dominant ion category.,,categorical,proton; other_cation; anion,harmonized manually,Encodes broad ionic environment rather than universal individual-ion ranking.
+inorganic_electrolyte_present,Whether an inorganic electrolyte or salt descriptor is present.,,binary/categorical,0/1 or equivalent category,harmonized manually,Used to analyze the role of electrolyte environment in controlling R.
+material_class,Broad material class of the active hydrovoltaic layer.,,categorical,carbon; polymer; hydrogel; biomass; metal oxide; composite; semiconductor; others,harmonized manually when available,Used as a descriptor block in modeling.
+R_regime,Resistance-regime class based on log(R).,,categorical,low_R; high_R,computed only when log(R) is available,low_R is defined as log(R) ≤ −1; high_R is defined as log(R) > −1.

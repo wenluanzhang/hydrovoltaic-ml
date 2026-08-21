@@ -1,0 +1,24 @@
+{
+    "ElasticNet": {
+        "model__alpha": 0.1,
+        "model__l1_ratio": 0.8
+    },
+    "SVR": {
+        "model__C": 1,
+        "model__epsilon": 0.01,
+        "model__kernel": "rbf"
+    },
+    "RandomForest": {
+        "model__max_depth": 5,
+        "model__min_samples_leaf": 1,
+        "model__min_samples_split": 5,
+        "model__n_estimators": 100
+    },
+    "XGBoost": {
+        "model__colsample_bytree": 1.0,
+        "model__learning_rate": 0.03,
+        "model__max_depth": 3,
+        "model__n_estimators": 100,
+        "model__subsample": 1.0
+    }
+}

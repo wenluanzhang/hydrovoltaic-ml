@@ -1,0 +1,10 @@
+﻿structure_clean,structure_label,regime,log_R,predicted_log_P_est
+film,Film,Low-R,-2.0,1.0894539253981976
+film,Film,Threshold,-1.0,0.76504917014648
+film,Film,High-R,0.0,0.4406444148947623
+hydrogel,Hydrogel,Low-R,-2.0,0.7198898148387057
+hydrogel,Hydrogel,Threshold,-1.0,0.3954850595869882
+hydrogel,Hydrogel,High-R,0.0,0.0710803043352706
+porous,Porous,Low-R,-2.0,0.42033590871879
+porous,Porous,Threshold,-1.0,0.0959311534670725
+porous,Porous,High-R,0.0,-0.2284736017846451

@@ -1,0 +1,9 @@
+﻿variable_group,columns_used,n_available,n_total,availability_percent
+Voc,voc_V,159,159,100.0
+Jsc,jsc_uA_cm2,159,159,100.0
+Reported power density,power_density_uW_cm2,108,159,67.9245283018868
+Internal resistance,internal_resistance_Mohm,112,159,70.44025157232704
+Structure,structure_class,159,159,100.0
+Ion type,ion_type,159,159,100.0
+Electrolyte descriptor,inorganic_electrolyte_present OR inorganic_electrolyte_type,159,159,100.0
+Mechanism label,mechanism_simple,159,159,100.0

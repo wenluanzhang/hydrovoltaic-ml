@@ -1,0 +1,8 @@
+# Generated publication assets
+*.pdf binary
+*.png binary
+*.jpg binary
+*.xlsx binary
+
+# Matplotlib-generated SVG path data commonly contains insignificant trailing spaces.
+*.svg -whitespace

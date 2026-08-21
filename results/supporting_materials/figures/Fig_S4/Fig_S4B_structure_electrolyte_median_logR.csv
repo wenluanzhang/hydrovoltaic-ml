@@ -1,0 +1,6 @@
+﻿structure,without electrolyte,with electrolyte
+porous,0.041392685158225,-1.3187587626244128
+film,-0.9430283238465815,-2.0
+hydrogel,-2.1428351201273834,-2.0
+hydrogel + porous,-1.6989700043360187,-2.0
+hydrogel + film,-1.3979400086720375,

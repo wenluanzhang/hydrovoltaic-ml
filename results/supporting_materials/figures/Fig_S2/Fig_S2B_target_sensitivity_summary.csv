@@ -1,0 +1,4 @@
+﻿target,R2_CV_mean,R2_CV_std
+$\log(P_{\mathrm{est}})$,0.197,0.155
+$V_{\mathrm{oc}}$,-0.386,0.607
+$\log(J_{\mathrm{sc}})$,0.275,0.146

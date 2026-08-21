@@ -1,0 +1,4 @@
+﻿panel,comparison,test,statistic,p_value
+Fig5A,inorganic electrolyte presence,Mann-Whitney U,2218.0,4.104276502713196e-06
+Fig5B,ion type,Kruskal-Wallis,20.40773298789912,3.7026877358042345e-05
+Fig5C,structure class,Kruskal-Wallis,8.542700363784371,0.0139629179415038
