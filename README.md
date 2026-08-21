@@ -1,6 +1,6 @@
 # Hydrovoltaic ML
 
-This repository contains the curated data, machine-learning analyses, and figure/table production workflow for the manuscript *Transport-Controlled Performance in Hydrovoltaic Energy Harvesting: A Data-Driven Assessment Using Interpretable Machine Learning*.
+This repository contains the curated data, machine-learning analyses, and figure/table production workflow for the manuscript *Transport-Centered Performance in Hydrovoltaic Energy Harvesting: A Data-Driven Assessment Using Interpretable Machine Learning*.
 
 ## Data scope
 
