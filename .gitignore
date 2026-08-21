@@ -46,3 +46,12 @@ results/**/style_test/
 results/**/pre_revision_production_snapshot/
 results/**/*_draft*.png
 results/**/*_draft*.pdf
+
+# Superseded intermediate analysis outputs
+results/09_*.csv
+results/10_*.csv
+results/11_best_*.csv
+
+# Internal SI planning/inventory files
+results/supporting_materials/inventory/
+results/supporting_materials/figures/SI_figure_plan.csv
